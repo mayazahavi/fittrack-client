@@ -1,0 +1,271 @@
+.form-title {
+  font-size: 32px;
+  color: #14532D;
+  font-weight: 800;
+  margin-bottom: 32px;
+  font-family: 'Rubik', sans-serif;
+}
+.history-section {
+  padding: 64px 0;
+}
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #F0FFF4;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.history-table th,
+.history-table td {
+  text-align: left;
+  padding: 16px;
+  border-bottom: 1px solid #cde7d4;
+}
+.history-table th {
+  background-color: #14532D;
+  color: white;
+}
+.history-table td {
+  background-color: #F0FFF4;
+}
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 6px;
+  font-size: 16px;
+}
+.edit-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+.delete-btn {
+  background-color: #FF6B6B;
+  color: white;
+}
+#editModal,
+#deleteConfirmModal {
+  border: none;
+  border-radius: 10px;
+  padding: 24px 32px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  font-family: 'Nunito', sans-serif;
+  width: 350px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+#editModal {
+  background-color: white;
+}
+#deleteConfirmModal {
+  background-color: #E6F4EA;
+  color: #14532D;
+}
+#editModal::backdrop,
+#deleteConfirmModal::backdrop {
+  background: rgba(0, 0, 0, 0.3);
+}
+#editModal[open],
+#deleteConfirmModal[open] {
+  animation: fadeIn 0.2s ease-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#editForm h3,
+#deleteConfirmForm h4 {
+  margin-bottom: 20px;
+  color: #14532D;
+}
+#editForm label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+#editForm input {
+  width: 100%;
+  padding: 8px 12px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+#editForm button[type="submit"],
+#deleteConfirmForm button.btn-danger {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  margin-right: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#deleteConfirmForm button.btn-danger {
+  background-color: #FF6B6B;
+}
+#editForm button[type="button"],
+#deleteConfirmForm button.btn-secondary {
+  background-color: #D1E7DD;
+  color: #14532D;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#editMealGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+.meal-wrapper {
+  position: relative;
+  padding-bottom: 40px;
+}
+.meal-input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.meal-input {
+  padding-right: 30px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  padding: 8px 12px;
+  width: 100%;
+}
+.remove-meal-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: none;
+  border: none;
+  color: #FF6B6B;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+.meal-error {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: 4px;
+  display: none;
+}
+.suggestions-list {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: white;
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  top: 100%;
+  left: 0;
+  box-sizing: border-box;
+}
+.suggestions-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.suggestions-list li:hover {
+  background-color: #e0f7fa;
+  font-weight: 600;
+}
+#addEditMealBtn {
+  margin-top: 8px;
+  background-color: #14532D;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.invalid-feedback {
+  font-size: 0.875rem;
+  color: #dc3545;
+  margin-top: 0.25rem;
+}
+#editForm .form-feedback {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+#editForm .form-feedback.success {
+  background-color: #d1e7dd;
+  color: #14532D;
+}
+#editForm .form-feedback.error {
+  background-color: #f8d7da;
+  color: #842029;
+}
+#deleteConfirmForm .form-feedback {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+#deleteConfirmForm .form-feedback.success {
+  background-color: #d1e7dd;
+  color: #14532D;
+}
+#deleteConfirmForm .form-feedback.error {
+  background-color: #f8d7da;
+  color: #842029;
+}
+.meal-name-wrapper {
+  position: relative;
+}
+
+.meal-name-wrapper .suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  max-height: 150px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.meal-name-wrapper .suggestions-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.meal-name-wrapper .suggestions-list li:hover {
+  background-color: #e0f7fa;
+  font-weight: 600;
+}
+
