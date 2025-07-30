@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Coach Feedback - FitTrack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/coachfeedback.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <section class="container d-flex justify-content-between align-items-center">
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+          <img src="images/fittrack_logo_darkgreen.png" alt="FitTrack Logo" width="64" height="64" class="me-2">
+          <strong class="fs-4 text-dark">FitTrack</strong>
+        </a>
+        <nav class="d-flex align-items-center gap-3">
+          <ul class="nav mb-0">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active-link" href="#" id="dashboardDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Send Feedback
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dashboardDropdown">
+                <li><a class="dropdown-item" href="coachdashboard.html">Dashboard</a></li>
+                <li><a class="dropdown-item" href="coachhistory.html">Feedback History</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="index.html" class="btn btn-success px-4 ms-2">Logout</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </nav>
+  </header>
+  <main class="container my-5">
+    <div class="card-form shadow rounded-4" style="max-width: 700px; margin: auto;">
+      <div class="card-body p-5">
+        <h2 class="form-title text-center text-success fw-bold mb-4 d-flex justify-content-center align-items-center">
+          Coach Feedback
+          <img src="images/notepad_icon_optimized.png" alt="Feedback Icon" style="height: 1.6em; margin-left: 8px;" />
+        </h2>
+        <form id="coachForm" autocomplete="off" class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6 position-relative">
+              <label for="date" class="form-label">Date</label>
+              <input type="date" id="date" name="date" class="form-control" required />
+              <div class="invalid-feedback">Please select a date.</div>
+            </div>
+            <div class="col-md-6 position-relative">
+              <label for="time" class="form-label">Time</label>
+              <input type="time" id="time" name="time" class="form-control" required />
+              <div class="invalid-feedback">Please select a time.</div>
+            </div>
+            <div class="col-12 position-relative">
+              <label for="traineeSelect" class="form-label">Select Trainee</label>
+              <select id="traineeSelect" name="traineeSelect" class="form-select" required>
+                <option value="" disabled selected>-- Select Trainee --</option>
+              </select>
+              <div class="invalid-feedback">Please select a trainee.</div>
+            </div>
+            <div class="col-12 text-end">
+              <button type="button" id="showTraineeDataBtn" class="btn rounded-pill mt-2" data-bs-toggle="modal" data-bs-target="#traineeDataModal">
+                Show Trainee Data <i class="bi bi-eye-fill"></i>
+              </button>
+            </div>
+            <section id="traineeProfileCard" class="card mt-4 p-4 shadow-sm" style="display: none; background-color: #e8f5e9;">
+              <h5 class="mb-3 fw-bold text-success">Trainee Profile</h5>
+              <div class="row">
+                <div class="col-md-6">
+                  <p><strong>Username:</strong> <span id="profileUsername"></span></p>
+                  <p><strong>Age:</strong> <span id="profileAge"></span></p>
+                  <p><strong>Gender:</strong> <span id="profileGender"></span></p>
+                  <p><strong>Height:</strong> <span id="profileHeight"></span> cm</p>
+                </div>
+                <div class="col-md-6">
+                  <canvas id="weightChart" width="300" height="200"></canvas>
+                  <p class="text-success mt-2" style="font-size: 0.9rem; text-align: center;">
+                  Weight progression over time</p>
+                </div>
+              </div>
+            </section>
+            <div class="col-12 position-relative">
+              <label for="tipNutrition" class="form-label">Nutrition Feedback</label>
+              <textarea id="tipNutrition" name="tipNutrition" class="form-control" rows="3" required placeholder="Feedback about meals..."></textarea>
+              <div class="invalid-feedback">Please enter nutrition feedback.</div>
+            </div>
+            <div class="col-12 position-relative">
+              <label for="tipExercise" class="form-label">Exercise Feedback</label>
+              <textarea id="tipExercise" name="tipExercise" class="form-control" rows="3" required placeholder="Feedback about training..."></textarea>
+              <div class="invalid-feedback">Please enter exercise feedback.</div>
+            </div>
+            <div class="col-12 position-relative">
+              <label for="tipGeneral" class="form-label">General Feedback</label>
+              <textarea id="tipGeneral" name="tipGeneral" class="form-control" rows="3" required placeholder="General feedback..."></textarea>
+              <div class="invalid-feedback">Please enter general feedback.</div>
+            </div>
+          </div>
+          <div id="form-status-message" class="text-center fw-bold mt-3"></div>
+          <button type="submit" class="btn btn-success w-100 mt-4 rounded-pill">Send Feedback</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  <section class="modal fade" id="traineeDataModal" tabindex="-1" aria-labelledby="traineeDataModalLabel" aria-hidden="true">
+    <article class="modal-dialog modal-lg modal-dialog-centered">
+      <section class="modal-content">
+        <header class="modal-header">
+          <h5 class="modal-title" id="traineeDataModalLabel">Trainee Data</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </header>
+        <section class="modal-body" id="traineeDataModalContent">Loading...</section>
+        <footer class="modal-footer">
+          <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+        </footer>
+      </section>
+    </article>
+  </section>
+  <footer id="contact" class="footer-section text-center text-white mt-5 py-4">
+    <section class="mb-3">
+      <a href="https://facebook.com" target="_blank"><img src="images/facebook.svg" alt="Facebook" width="24" class="mx-2 social-icon" /></a>
+      <a href="https://instagram.com" target="_blank"><img src="images/instagram.svg" alt="Instagram" width="24" class="mx-2 social-icon" /></a>
+      <a href="https://twitter.com" target="_blank"><img src="images/twitter.svg" alt="Twitter" width="24" class="mx-2 social-icon" /></a>
+    </section>
+    <small>© 2025 FitTrack, All rights reserved.</small>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="js/coachfeedback.js"></script>
+</body>
+</html>
