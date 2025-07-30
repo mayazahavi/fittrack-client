@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch(`${BASE_URL}/api/users/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password, role }),
+        body: JSON.stringify({ username, password, role, secretCode: coachCode }),
       });
 
       const data = await res.json();
