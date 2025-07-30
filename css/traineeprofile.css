@@ -1,0 +1,112 @@
+body {
+  background-color: #f8f3ff;
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.profile-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #14532D;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  text-align: center;
+  border-left: 6px solid #14532D;
+  padding-left: 16px;
+}
+#weight-reminder {
+  max-width: 600px;
+  margin: 0 auto 32px auto;
+  background-color: #d1f4e0; 
+  border: 2px solid #14532D; 
+  color: #14532D;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.profile-form-card {
+  background-color: #D6F0E9;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  border: 1px solid #c2e3d3;
+}
+.profile-form-card .form-control,
+.profile-form-card .form-select {
+  border-radius: 12px;
+  border: 2px solid #14532D;
+  padding: 12px;
+  font-size: 16px;
+  color: #14532D;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+  margin-bottom: 4px;
+}
+.profile-form-card .form-control:focus,
+.profile-form-card .form-select:focus {
+  border-color: #1c6b3a;
+  box-shadow: 0 0 0 0.2rem rgba(20, 83, 45, 0.25);
+}
+.profile-form-card .form-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #0d3a1f;
+}
+.profile-form-card .invalid-feedback {
+  display: none;
+  color: #8b1c1c;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.profile-form-card .form-control.is-invalid ~ .invalid-feedback,
+.profile-form-card .form-select.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+.profile-form-card .btn-primary {
+  background-color: #14532D !important;
+  border-color: #14532D !important;
+  color: #fff !important;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 16px;
+}
+.profile-form-card .btn-primary:hover {
+  background-color: #1c6b3a !important;
+  border-color: #1c6b3a !important;
+}
+#profile-status-message {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+  display: none;
+}
+#profile-status-message.success {
+  background-color: #d1f4e0;
+  color: #14532D;
+  border: 2px solid #a5e4c0;
+}
+#profile-status-message.error {
+  background-color: #fde2e2;
+  color: #8b1c1c;
+  border: 2px solid #f5b5b5;
+}
+.weight-tip-box {
+  max-width: 600px;
+  background-color: rgba(209, 244, 224, 0.4); /* ירוק שקפקף */
+  border: 1px solid #b7e4ce;
+  padding: 12px 20px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #14532D;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
