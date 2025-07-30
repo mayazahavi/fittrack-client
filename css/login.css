@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+body, html {
+  height: 100%;
+}
+body {
+  background: url("../images/login_background_fitness_desktop_optimized.png") no-repeat center center fixed;
+  background-size: cover;
+}
+.login-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-box {
+  background-color: rgba(255, 255, 255, 0.88); 
+  padding: 32px;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 8px 20px rgba(47, 104, 70, 0.4); 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-logo {
+  width: 70px;
+  margin-bottom: 24px;
+}
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #538d6b; 
+  border-radius: 6px;
+  background-color: #edf6f0;
+  color: #333;
+}
+.login-box input::placeholder {
+  color: #6b9c80;
+}
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2f6846; 
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+.login-box button:hover {
+  background-color: #245a3b; 
+}
+.forgot-password {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #3b7c58;
+  text-decoration: none;
+}
+.forgot-password:hover {
+  text-decoration: underline;
+}
+.login-select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #538d6b;
+  border-radius: 6px;
+  background-color: #edf6f0;
+  color: #333;
+  font-size: 16px;
+}
+.login-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2f6846; 
+  margin-bottom: 12px;
+  text-align: center;
+}
+.error-msg {
+  color: #cc0000;
+  font-size: 14px;
+  margin: -12px 0 8px 0;
+  display: none;
+  width: 100%;
+  text-align: left;
+}
+.back-home-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+.back-home-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #2f6846;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+.back-home-link:hover {
+  color: #245a3b;
+}
+.back-home-icon {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease;
+}
+.back-home-link:hover .back-home-icon {
+  transform: scale(1.1);
+}
+.feedback-msg {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  margin: 8px 0 16px;
+  padding: 10px;
+  border-radius: 6px;
+  display: none;
+}
+.feedback-error {
+  background-color: #ffe5e5;
+  color: #cc0000;
+  border: 1px solid #cc0000;
+}
+.feedback-success {
+  background-color: #e1f5e9;
+  color: #2f6846;
+  border: 1px solid #2f6846;
+}
