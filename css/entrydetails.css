@@ -1,0 +1,64 @@
+body {
+  background-color: #f8f3ff;
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+h2.summary-title {
+  color: #064e3b !important; 
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.summary-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+#caloriesChart {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+#totalCalories {
+  font-size: 20px;
+  font-weight: 700;
+  color: #14532d;
+  margin-top: 8px;
+}
+#noDataMessage {
+  color: #6c757d;
+  font-size: 16px;
+  margin-top: 10px;
+}
+.footer-section {
+  background-color: #0a2540;
+  padding: 32px 0;
+  color: #ffffff;
+}
+.footer-section .social-icon {
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s;
+}
+.footer-section .social-icon:hover {
+  transform: scale(1.2);
+}
+#caloriesChart {
+  cursor: pointer;
+}
