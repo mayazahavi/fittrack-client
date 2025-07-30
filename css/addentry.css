@@ -1,0 +1,156 @@
+body {
+  background-color: #f8f3ff;
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.entry-form-section {
+  padding: 64px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-title {
+  font-size: 32px;
+  color: #14532D; 
+  font-weight: 800;
+  margin-bottom: 32px;
+  font-family: 'Rubik', sans-serif;
+}
+.entry-form {
+  background-color: #D6F0E9 !important;
+  padding: 32px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.entry-form label {
+  font-weight: 600;
+  color: #14532D;
+  font-family: 'Nunito', sans-serif;
+}
+.entry-form input,
+.entry-form select {
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+.meal-wrapper {
+  position: relative;
+}
+.meal-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  box-sizing: border-box;
+}
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0 0 8px 8px;
+}
+.suggestions-list li {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-family: 'Nunito', sans-serif;
+}
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+#add-meal-btn {
+  background-color: #14532D;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#add-meal-btn:hover {
+  background-color: #1E5E3C;
+}
+.entry-form button[type="submit"] {
+  padding: 12px;
+  background-color: #14532D;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.entry-form button[type="submit"]:hover {
+  background-color: #1E5E3C;
+}
+.invalid-feedback {
+  display: none;
+  color: #cc0000;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.invalid-feedback.d-block {
+  display: block;
+}
+.form-error,
+.text-danger {
+  color: #cc0000 !important;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: -8px;
+}
+.calorie-output {
+  font-weight: bold;
+  font-size: 18px;
+  color: #14532D;
+  margin-top: 12px;
+}
+#form-feedback {
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 12px;
+  text-align: center;
+  display: none;
+  border-radius: 6px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.feedback-success {
+  background-color: #e1f5e9;
+  color: #2f6846;
+  border: 1px solid #2f6846;
+}
+.feedback-error {
+  background-color: #ffe5e5;
+  color: #cc0000;
+  border: 1px solid #cc0000;
+}
+.remove-meal-btn {
+  margin-left: 8px;
+  margin-top: -2px;
+}
