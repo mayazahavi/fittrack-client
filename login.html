@@ -13,39 +13,24 @@
       <span class="back-home-text">Back to Home</span>
     </a>
   </section>
-
   <section class="login-wrapper">
     <form class="login-box" id="loginForm" autocomplete="off">
       <h2 class="login-heading">Welcome to FitTrack</h2>
       <img src="images/fittrack_logo_darkgreen.png" alt="FitTrack Logo" class="login-logo" />
-
-      <!-- תפקיד -->
       <select name="role" id="role" class="login-select">
         <option value="" disabled selected>Select Role</option>
-        <!-- 🟢 תפקידים ייטענו מהשרת דרך login.js -->
       </select>
       <p class="error-msg" id="role-error"></p>
-
-      <!-- שם משתמש -->
       <input type="text" id="username" placeholder="Username" />
       <p class="error-msg" id="username-error"></p>
-
-      <!-- סיסמה -->
       <input type="password" id="password" placeholder="Password" />
       <p class="error-msg" id="password-error"></p>
-
-      <!-- הודעת הצלחה/שגיאה -->
       <p class="feedback-msg" id="form-feedback"></p>
-
-      <!-- כפתור התחברות -->
       <button type="submit">Login</button>
-
-      <!-- קישורים נוספים -->
       <a href="#" class="forgot-password">Forgot Password?</a><br>
       <a href="register.html" class="forgot-password">Don't have an account? Register</a>
     </form>
   </section>
-
   <script type="module" src="js/login.js"></script>
 </body>
 </html>

@@ -1,5 +1,4 @@
 import { BASE_URL } from "./config.js";
-
 document.addEventListener("DOMContentLoaded", () => {
   const profileForm = document.getElementById("profileForm");
   const usernameInput = document.getElementById("username");
@@ -8,11 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const heightInput = document.getElementById("height");
   const weightInput = document.getElementById("weight");
   const statusMessage = document.getElementById("profile-status-message");
-
   const savedUsername = localStorage.getItem("username");
   const token = localStorage.getItem("token");
-
-  // ✅ שליפת המגדרים מהשרת עם Authorization header
   fetch(`${BASE_URL}/api/trainee/profile/genders`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -34,12 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((err) => {
       console.error("Error loading gender list:", err);
     });
-
   if (savedUsername && usernameInput) {
     usernameInput.value = savedUsername;
     usernameInput.readOnly = true;
   }
-
   if (token && savedUsername) {
     fetch(`${BASE_URL}/api/trainee/profile/${savedUsername}`, {
       method: "GET",
@@ -64,11 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Error loading profile:", err);
       });
   }
-
   profileForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     clearValidation();
-
     const data = {
       username: savedUsername,
       age: ageInput.value.trim(),
@@ -76,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
       height: heightInput.value.trim(),
       weight: weightInput.value.trim(),
     };
-
     let valid = true;
     if (!data.age) {
       markInvalid(ageInput);
@@ -94,12 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
       markInvalid(weightInput);
       valid = false;
     }
-
     if (!valid) {
       showMessage("Please fill out all required fields.", "error");
       return;
     }
-
     try {
       const res = await fetch(`${BASE_URL}/api/trainee/profile`, {
         method: "POST",
@@ -115,19 +104,16 @@ document.addEventListener("DOMContentLoaded", () => {
       showMessage("Error saving profile: " + err.message, "error");
     }
   });
-
   function showMessage(message, type) {
     statusMessage.textContent = message;
     statusMessage.className = "";
     statusMessage.classList.add(type === "success" ? "success" : "error");
     statusMessage.id = "profile-status-message";
     statusMessage.style.display = "block";
-
     setTimeout(() => {
       statusMessage.style.display = "none";
     }, 5000);
   }
-
   function markInvalid(input) {
     input.classList.add("is-invalid");
     const error = document.createElement("div");
@@ -137,11 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
       input.parentElement.appendChild(error);
     }
   }
-
   function clearValidation() {
     const invalids = profileForm.querySelectorAll(".is-invalid");
     invalids.forEach((el) => el.classList.remove("is-invalid"));
-
     const feedbacks = profileForm.querySelectorAll(".invalid-feedback");
     feedbacks.forEach((el) => el.remove());
   }

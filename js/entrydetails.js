@@ -1,10 +1,8 @@
 import { BASE_URL } from "./config.js";
-
 document.addEventListener("DOMContentLoaded", async () => {
   const ctx = document.getElementById("caloriesChart").getContext("2d");
   const noDataMsg = document.getElementById("noDataMessage");
   const totalDisplay = document.getElementById("totalCalories");
-
   function parseJwt(token) {
     const base64Url = token.split('.')[1];
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -15,34 +13,27 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   try {
     const token = localStorage.getItem("token");
-
     if (!token) {
       noDataMsg.textContent = "You must be logged in to see the chart.";
       return;
     }
-
     const userData = parseJwt(token);
     const traineeId = userData.id;
-
     const res = await fetch(`${BASE_URL}/api/entries?traineeId=${traineeId}`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }
     });
-
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
-
     const allEntries = await res.json();
     const today = new Date().toISOString().split("T")[0];
     const todayEntries = allEntries.filter(e => e.date === today);
-
     if (todayEntries.length === 0) {
       noDataMsg.textContent = "No meal data available for today.";
       return;
     }
-
     const caloriesByMeal = {};
     todayEntries.forEach(entry => {
       if (entry.meals && Array.isArray(entry.meals)) {
@@ -53,12 +44,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
       }
     });
-
     const labels = Object.keys(caloriesByMeal);
     const data = Object.values(caloriesByMeal);
     const totalCalories = data.reduce((sum, val) => sum + val, 0);
     totalDisplay.textContent = `Total Calories: ${totalCalories.toFixed(2)} cal`;
-
     new Chart(ctx, {
       type: "pie",
       data: {
@@ -94,7 +83,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       }
     });
-
   } catch (err) {
     console.error("Error fetching or displaying data:", err);
     noDataMsg.textContent = "Error loading data.";

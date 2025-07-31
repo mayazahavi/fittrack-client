@@ -101,7 +101,7 @@ body {
 }
 .weight-tip-box {
   max-width: 600px;
-  background-color: rgba(209, 244, 224, 0.4); /* ירוק שקפקף */
+  background-color: rgba(209, 244, 224, 0.4); 
   border: 1px solid #b7e4ce;
   padding: 12px 20px;
   border-radius: 16px;

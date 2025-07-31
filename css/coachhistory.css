@@ -219,13 +219,11 @@ textarea.is-invalid {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-
 #traineeFilter:hover,
 #traineeFilter:focus {
   border-color: #0e3e22;
   box-shadow: 0 0 0 4px rgba(20, 83, 45, 0.2);
 }
-
 #traineeFilter option {
   background-color: white;
   color: #14532D;

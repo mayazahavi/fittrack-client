@@ -258,12 +258,10 @@
   padding: 0;
   margin: 0;
 }
-
 .meal-name-wrapper .suggestions-list li {
   padding: 8px 12px;
   cursor: pointer;
 }
-
 .meal-name-wrapper .suggestions-list li:hover {
   background-color: #e0f7fa;
   font-weight: 600;
